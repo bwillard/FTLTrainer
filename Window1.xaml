@@ -1,0 +1,12 @@
+﻿<Window x:Class="FTLTrainer.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="500">
+    <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
+        <Label Height="25">Load File From:</Label>
+        <TextBox Name="FileLoacation" Width="200" Height="25" Text="C:\Users\bwillard\Desktop\ftlSaveFiles\continueTest.sav"></TextBox>
+        <Button Click="BrowseClicked" Height="25">Browse</Button>
+        <Button Click="OpenClicked" Height="25">Open</Button>
+        <Button Click="SaveClicked" Height="25">Save</Button>
+    </StackPanel>
+</Window>
