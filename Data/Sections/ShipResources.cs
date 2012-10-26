@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.DataTypes;
 
 namespace FTLTrainer.Data.Sections
 {
@@ -9,11 +10,11 @@ namespace FTLTrainer.Data.Sections
     {
         public ShipResources()
         {
-            Hull = new FTLInt();
-            Fuel = new FTLInt();
-            Drones = new FTLInt();
-            Missiles = new FTLInt();
-            Scrap = new FTLInt();
+            Hull = new FTLInt("Hull");
+            Fuel = new FTLInt("Fuel");
+            Drones = new FTLInt("Drones");
+            Missiles = new FTLInt("Missiles");
+            Scrap = new FTLInt("Scrap");
         }
         public FTLInt Hull { get; set; }
         public FTLInt Fuel { get; set; }

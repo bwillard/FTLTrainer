@@ -7,6 +7,10 @@ namespace FTLTrainer.Data
 {
     class FTLRemainder : FTLVlaue<byte[]>
     {
+        public FTLRemainder(String name) :base(name)
+        {
+            
+        }
         public override byte[] GetBytes()
         {
             return Value;

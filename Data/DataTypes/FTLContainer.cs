@@ -3,11 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FTLTrainer.Data
+namespace FTLTrainer.Data.DataTypes
 {
-    abstract class FTLContainer : IFTLVlaue
+    public abstract class FTLContainer : IFTLVlaue
     {
+        protected FTLContainer()
+        {
+            Name = this.GetType().Name;
+        }
+
+        protected FTLContainer(String name)
+        {
+            Name = name;
+        }
+
         protected abstract IEnumerable<IFTLVlaue> GetValues();
+
+        public IEnumerable<IFTLVlaue> Values
+        {
+            get
+            {
+                return GetValues();
+            }
+        }
+
+        public String Name { get; private set; }
 
         public byte[] GetBytes() 
         {

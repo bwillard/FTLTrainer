@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.DataTypes;
 
 namespace FTLTrainer.Data
 {
@@ -31,27 +32,27 @@ namespace FTLTrainer.Data
 
         public FTLCrewDetail()
         {
-            Name = new FTLString();
-            Race = new FTLString();
-            IsDrone = new FTLInt();
-            Hp = new FTLInt();
-            XCoordinate = new FTLInt();
-            YCoordinate = new FTLInt();
-            Room = new FTLInt();
-            RoomTile = new FTLInt();
-            Piloting = new FTLInt();
-            Engines = new FTLInt();
-            Shields = new FTLInt();
-            Weapons = new FTLInt();
-            Repair = new FTLInt();
-            Combat = new FTLInt();
-            Gender = new FTLInt();
-            RepairsStat = new FTLInt();
-            CombatKillsStat = new FTLInt();
-            PilotedEvasionsStat = new FTLInt();
-            JumpsSurvivedStat = new FTLInt();
-            SkillMasteriesStat = new FTLInt();
-            Unknown = new FTLInt();
+            Name = new FTLString("Name");
+            Race = new FTLString("Race");
+            IsDrone = new FTLInt("Is Drone");
+            Hp = new FTLInt("HP");
+            XCoordinate = new FTLInt("X");
+            YCoordinate = new FTLInt("Y");
+            Room = new FTLInt("Room");
+            RoomTile = new FTLInt("Room Tile");
+            Piloting = new FTLInt("Piloting (0 - 30)");
+            Engines = new FTLInt("Engines (0 - 30)");
+            Shields = new FTLInt("Shields (0 - 110)");
+            Weapons = new FTLInt("Weapons (0 - 130)");
+            Repair = new FTLInt("Repair (0 -  16)");
+            Combat = new FTLInt("Combat (0 - 16)");
+            Gender = new FTLInt("Gender");
+            RepairsStat = new FTLInt("Repairs (stat)");
+            CombatKillsStat = new FTLInt("Combat Kills (stat)");
+            PilotedEvasionsStat = new FTLInt("Piloted Evasions (stat)");
+            JumpsSurvivedStat = new FTLInt("Jumps Survived (stat)");
+            SkillMasteriesStat = new FTLInt("Skills Mastered (stat)");
+            Unknown = new FTLInt("Unknown");
         }
 
         protected override IEnumerable<IFTLVlaue> GetValues()

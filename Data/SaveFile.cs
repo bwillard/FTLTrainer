@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.Sections;
+using FTLTrainer.Data.DataTypes;
 
-namespace FTLTrainer.Data.Sections
+namespace FTLTrainer.Data
 {
-    class SaveFile : FTLContainer
+    public class SaveFile : FTLContainer
     {
         public SaveFile()
         {
@@ -17,7 +19,7 @@ namespace FTLTrainer.Data.Sections
             CrewOverview = new CrewOverview();
             ShipResources = new ShipResources();
             CrewDetails = new CrewDetails();
-            FTLRemainder = new FTLRemainder();
+            FTLRemainder = new FTLRemainder("Remainder");
         }
 
         Header Header { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.DataTypes;
 
 namespace FTLTrainer.Data.Sections
 {
@@ -9,9 +10,9 @@ namespace FTLTrainer.Data.Sections
     {
         public ShipDesignation()
         {
-            Name = new FTLString();
-            ShipId = new FTLString();
-            Unkown = new FTLByteArray(8);
+            Name = new FTLString("Name");
+            ShipId = new FTLString("Ship ID");
+            Unkown = new FTLByteArray("Unknown",8);
         }
         public FTLString Name { get; set; }
         public FTLString ShipId { get; set; }

@@ -5,8 +5,11 @@ using System.Text;
 
 namespace FTLTrainer.Data
 {
-    class FTLString : FTLVlaue<String>
+    public class FTLString : FTLVlaue<String>
     {
+        public FTLString(String name): base(name)
+        {
+        }
         public override byte[] GetBytes()
         {
             byte[] data = new byte[Value.Length + 4];

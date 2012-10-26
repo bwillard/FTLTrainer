@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.DataTypes;
 
 namespace FTLTrainer.Data
 {
@@ -9,8 +10,8 @@ namespace FTLTrainer.Data
     {
         public FTLCrewOverview()
         {
-            Race = new FTLString();
-            Name = new FTLString();
+            Race = new FTLString("Race");
+            Name = new FTLString("Name");
         }
 
         public FTLString Race { get; private set; }

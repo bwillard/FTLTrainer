@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
-using FTLTrainer.Data.Sections;
+using FTLTrainer.Data;
 
 namespace FTLTrainer
 {
@@ -22,10 +22,14 @@ namespace FTLTrainer
     /// </summary>
     public partial class Window1 : Window
     {
-        private SaveFile saveFile = new SaveFile();
+        public SaveFile SaveFile {get;set;}
+        protected int Test { get; set; }
         public Window1()
         {
+            SaveFile = new SaveFile();
+            Test = 5;
             InitializeComponent();
+            DataContext = this;
         }
 
         private void BrowseClicked(object sender, RoutedEventArgs e)
@@ -41,7 +45,7 @@ namespace FTLTrainer
         private void OpenClicked(object sender, RoutedEventArgs e)
         {
             byte[] data = File.ReadAllBytes(FileLoacation.Text);
-            saveFile.InitFromBytes(data, 0);
+            SaveFile.InitFromBytes(data, 0);
         }
 
         private void SaveClicked(object sender, RoutedEventArgs e)
@@ -51,7 +55,7 @@ namespace FTLTrainer
                 File.Move(FileLoacation.Text, FileLoacation.Text + ".bak");
             }
 
-            File.WriteAllBytes(FileLoacation.Text, saveFile.GetBytes());
+            File.WriteAllBytes(FileLoacation.Text, SaveFile.GetBytes());
         }
     }
 }

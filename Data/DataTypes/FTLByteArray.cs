@@ -8,7 +8,7 @@ namespace FTLTrainer.Data
     class FTLByteArray : FTLVlaue<byte[]>
     {
         private int length;
-        public FTLByteArray(int length)
+        public FTLByteArray(String name, int length) : base(name)
         {
             this.length = length;
             Value = new byte[length];

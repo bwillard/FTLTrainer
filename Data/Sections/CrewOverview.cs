@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.DataTypes;
 
 namespace FTLTrainer.Data.Sections
 {
@@ -9,10 +10,10 @@ namespace FTLTrainer.Data.Sections
     {
         public CrewOverview()
         {
-            Crew = new FTLArray<FTLCrewOverview>();
+            Crew = new FTLArray("Crew", () => new FTLCrewOverview());
         }
 
-        FTLArray<FTLCrewOverview> Crew { get; set; }
+        FTLArray Crew { get; set; }
 
         protected override IEnumerable<IFTLVlaue> GetValues()
         {

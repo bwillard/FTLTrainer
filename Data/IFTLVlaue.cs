@@ -5,9 +5,10 @@ using System.Text;
 
 namespace FTLTrainer.Data
 {
-    interface IFTLVlaue
+    public interface IFTLVlaue
     {
         byte[] GetBytes();
         int InitFromBytes(byte[] data, int offset);
+        String Name { get;}
     }
 }

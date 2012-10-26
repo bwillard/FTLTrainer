@@ -5,9 +5,15 @@ using System.Text;
 
 namespace FTLTrainer.Data
 {
-    abstract class FTLVlaue<T> : IFTLVlaue
+    public abstract class FTLVlaue<T> : IFTLVlaue
     {
-        public T Value { get; protected set; }
+        protected FTLVlaue(String name)
+        {
+            Name = name;
+        }
+        public T Value { get; set; }
+
+        public String Name { get; private set; }
 
         public abstract byte[] GetBytes();
         public abstract int InitFromBytes(byte[] data, int offset);

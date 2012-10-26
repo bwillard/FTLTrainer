@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FTLTrainer.Data.DataTypes;
 
-namespace FTLTrainer.Data
+namespace FTLTrainer.Data.DataTypes
 {
-    class FTLArray<T> : FTLVlaue<List<T>> where T : IFTLVlaue, new()
+    class FTLArray : FTLVlaue<List<IFTLVlaue>>
     {
+        private Func<IFTLVlaue> creationFunction;
+        public FTLArray(String name, Func<IFTLVlaue> creationFunction) : base(name)
+        {
+            this.creationFunction = creationFunction;
+        }
+
         public int length {get;set;}
-        public List<T> values { get; set; }
+        public List<IFTLVlaue> Values { get; set; }
 
         public override byte[] GetBytes()
         {
             List<byte> data = new List<byte>();
             data.AddRange(BitConverter.GetBytes(length));
-            foreach(T value in values)
+            foreach (IFTLVlaue value in Values)
             {
                 data.AddRange(value.GetBytes());
             }
@@ -26,12 +33,12 @@ namespace FTLTrainer.Data
         {
             int bytesRead = 4;
             length = BitConverter.ToInt32(data, offset);
-            values = new List<T>(length);
+            Values = new List<IFTLVlaue>(length);
             for (int i = 0; i < length; i++)
             {
-                T value = new T();
+                IFTLVlaue value = creationFunction();
                 bytesRead += value.InitFromBytes(data, offset + bytesRead);
-                values.Add(value);
+                Values.Add(value);
             }
             return bytesRead;
         }

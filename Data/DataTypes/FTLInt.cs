@@ -6,8 +6,12 @@ using System.ComponentModel;
 
 namespace FTLTrainer.Data
 {
-    class FTLInt : FTLVlaue<Int32>
+    public class FTLInt : FTLVlaue<Int32>
     {
+        public FTLInt(String name) : base(name)
+        {
+        }
+
         public override byte[] GetBytes()
         {
             return BitConverter.GetBytes(Value);
